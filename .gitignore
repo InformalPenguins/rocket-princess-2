@@ -1,0 +1,15 @@
+.DS_Store
+.idea
+
+bower_components/
+node_modules/
+
+.vagrant
+
+dist/
+build/
+
+*.log
+
+.divshot-cache
+.project
