@@ -100,7 +100,7 @@ Play.prototype.create = function () {
 
     // player
 
-    princess = new Princess(game, game.world.centerX, game.height - c.PRINCESS_HEIGHT, 0);
+    princess = new Princess(game, game.world.centerX, c.PRINCESS_HEIGHT, 0);
 
     cursors = game.input.keyboard.createCursorKeys();
     turboButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
