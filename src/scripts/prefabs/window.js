@@ -21,7 +21,7 @@ var Window = module.exports = function Window(gameInstance, x, y) {
 
     this.events.onOutOfBounds.add(function () {
         if (this.position.y < 0) {
-            this.reset(this.position.x, c.WINDOW_HEIGHT * 2);
+            this.reset(this.position.x, this.game.height + c.WINDOW_HEIGHT);
             this.reloadFrame();
         }
     }, this);

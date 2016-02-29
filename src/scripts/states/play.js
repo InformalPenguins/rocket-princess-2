@@ -64,7 +64,7 @@ Play.prototype.create = function () {
     castleBg = game.add.tileSprite(game.world.width / 2 - c.CASTLE_WIDTH / 2, 0, c.CASTLE_WIDTH, game.world.height, 'bg-castle-complete');
     game.physics.enable(castleBg, Phaser.Physics.ARCADE);
 
-    windowBg = new Window(game, game.world.width / 2 - c.WINDOW_WIDTH / 2, c.WINDOW_HEIGHT * 2);
+    windowBg = new Window(game, game.world.width / 2 - c.WINDOW_WIDTH / 2, game.world.height);
 
     // UI
     // 30, 5 is the diff for the container into the first px to render the bar.
