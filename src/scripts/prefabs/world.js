@@ -10,7 +10,7 @@ var doors;
 
 var World = function (props) {
     this.score = 0;
-    this.velocity = 100;
+    this.velocity = -100;
     this.turbo = false;
     initialVelocity = this.velocity;
 

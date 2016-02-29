@@ -64,7 +64,7 @@ Play.prototype.create = function () {
     castleBg = game.add.tileSprite(game.world.width / 2 - c.CASTLE_WIDTH / 2, 0, c.CASTLE_WIDTH, game.world.height, 'bg-castle-complete');
     game.physics.enable(castleBg, Phaser.Physics.ARCADE);
 
-    windowBg = new Window(game, game.world.width / 2 - c.WINDOW_WIDTH / 2, -c.WINDOW_HEIGHT);
+    windowBg = new Window(game, game.world.width / 2 - c.WINDOW_WIDTH / 2, c.WINDOW_HEIGHT * 2);
 
     // UI
     // 30, 5 is the diff for the container into the first px to render the bar.
@@ -189,7 +189,7 @@ Play.prototype.createEnemies = function () {
     }
 
     enemy.revive();
-    enemy.reset(utils.getRandomIntInclusive(0, game.width), -150);
+    enemy.reset(utils.getRandomIntInclusive(0, game.width), this.game.height + 150);
     this.game._world.update();
 };
 

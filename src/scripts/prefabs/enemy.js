@@ -14,7 +14,7 @@ var Enemy = module.exports = function Enemy(gameInstance, x, y) {
 
     var randomInt = utils.getRandomIntInclusive(0, 1);
 
-    Phaser.Sprite.call(this, gameInstance, x || 0, y || 0, types[randomInt]);
+    Phaser.Sprite.call(this, gameInstance, x || 0, y || gameInstance.height, types[randomInt]);
 
     this.alive = false;
     this.exists = false;
@@ -44,7 +44,7 @@ Enemy.prototype.reset = function reset() {
 
     this.checkWorldBounds = true;
     this.events.onOutOfBounds.add(function () {
-        if (this.alive && this.position.y > this.game.height) {
+        if (this.alive && this.position.y < 0) {
             this.kill();
             this.game._world.addScore(1);
         }
