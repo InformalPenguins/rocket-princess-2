@@ -13,7 +13,7 @@ module.exports = {
     UP      : 16,
 
     /***** player *****/
-    MAX_VELOCITY            :  800,
+    MAX_VELOCITY            :  -800,
     MAX_FUEL                :  100,
     VELOCITY                :  600,
     RESTORE_FACING_DELAY    :  300,

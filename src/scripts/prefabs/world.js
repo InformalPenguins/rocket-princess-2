@@ -37,7 +37,7 @@ World.prototype.update = function update() {
 
 World.prototype.setVelocity = function setVelocity() {
     if (!this.turbo) {
-        this.velocity = this.velocity >= c.MAX_VELOCITY ? c.MAX_VELOCITY : initialVelocity + Math.floor(this.score / 5) * 20;
+        this.velocity = this.velocity <= c.MAX_VELOCITY ? c.MAX_VELOCITY : initialVelocity - Math.floor(this.score / 5) * 20;
     }
 };
 
