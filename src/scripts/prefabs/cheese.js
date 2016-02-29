@@ -10,7 +10,7 @@ var utils = require('../utils');
 var Cheese = module.exports = function Cheese(gameInstance, x, y, frame) {
     console.assert(gameInstance, 'You should provide a gameInstance instance to this Sprite [Cheese]');
 
-    Phaser.Sprite.call(this, gameInstance, x || utils.getRandomIntInclusive(0, gameInstance.width), y || 0, frame || 'cheese');
+    Phaser.Sprite.call(this, gameInstance, x || utils.getRandomIntInclusive(0, gameInstance.width), y || gameInstance.height, frame || 'cheese');
 
     gameInstance.physics.arcade.enable(this);
     gameInstance.add.existing(this);
@@ -24,7 +24,7 @@ var Cheese = module.exports = function Cheese(gameInstance, x, y, frame) {
     this.spawnTimer.autoDestroy = false;
 
     this.events.onOutOfBounds.add(function () {
-        if (this.position.y > this.game.height) {
+        if (this.position.y + this.height < 0) {
             this.reSpawn();
         }
     }, this);
@@ -59,7 +59,7 @@ Cheese.prototype.reSpawn = function reSpawn() {
 
     this.spawnTimer.add(c.CHEESE_RESPAWN_TIMEOUT, function () {
         this.revive();
-        this.reset(utils.getRandomIntInclusive(0, this.game.width), -c.WINDOW_HEIGHT);
+        this.reset(utils.getRandomIntInclusive(0, this.game.width), this.game.height + c.WINDOW_HEIGHT);
         this.isWaiting = false;
     }, this);
 
